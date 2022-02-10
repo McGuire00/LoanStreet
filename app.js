@@ -1,12 +1,12 @@
 const express = require("express");
 require("dotenv").config();
-const connectToDB = require("./util/mongoose");
 
 const app = express();
 
-// connects to mongoose database
-connectToDB();
 
+app.get("/", (req, res) => {
+  res.send("Welcome");
+});
 
 const port = process.env.PORT || 3000;
 
