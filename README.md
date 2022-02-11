@@ -25,6 +25,9 @@
 - GET
   - Returns a 200 response containing all saved loans
 
+- POST 
+  - Creates a new loan with the information from the body of the requests and saves it to the database. Returns a 201 response with the newly-created loan as a repsonse
+
 **/api/loans/:loanid**
 
 - GET
