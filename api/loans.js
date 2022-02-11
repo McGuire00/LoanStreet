@@ -76,7 +76,7 @@ loanRouter.post("/", (req, res, next) => {
 });
 
 loanRouter.get("/:loanId", (req, res, next) => {
-  res.status(200).json({ loan: req.loan });
+  res.json({ loan: req.loan });
 });
 
 loanRouter.put("/:loanId", (req, res, next) => {
@@ -133,7 +133,7 @@ loanRouter.delete("/:loanId", (req, res, next) => {
     if (error) {
       next(error);
     } else {
-      res.sendStatus(204);
+      res.json({ success: true, msg: "Entry has been deleted successfully" });
     }
   });
 });
