@@ -1,5 +1,6 @@
 const express = require("express");
 const sqlite3 = require("sqlite3");
+const isLoanValid = require("../util/validate");
 
 const databaseConnection = process.env.TEST_DATABASE || "./database.sqlite";
 const db = new sqlite3.Database(databaseConnection);
@@ -42,6 +43,15 @@ loanRouter.post("/", (req, res, next) => {
     return res.sendStatus(400);
   }
 
+  if (
+    !isLoanValid(amount) ||
+    !isLoanValid(interestRate) ||
+    !isLoanValid(lengthOfLoan) ||
+    !isLoanValid(monthlyPaymentAmount)
+  ) {
+    return res.sendStatus(400);
+  }
+
   const sql =
     "INSERT INTO Loan (amount, interest_rate, length_of_loan_in_months, monthly_payment_amount) VALUES ($amount, $interestRate, $lengthOfLoan, $monthlyPaymentAmount)";
   const values = {
@@ -76,6 +86,15 @@ loanRouter.put("/:loanId", (req, res, next) => {
   const monthlyPaymentAmount = req.body.monthlyPaymentAmount;
 
   if (!amount || !interestRate || !lengthOfLoan || !monthlyPaymentAmount) {
+    return res.sendStatus(400);
+  }
+
+  if (
+    !isLoanValid(amount) ||
+    !isLoanValid(interestRate) ||
+    !isLoanValid(lengthOfLoan) ||
+    !isLoanValid(monthlyPaymentAmount)
+  ) {
     return res.sendStatus(400);
   }
 
@@ -114,7 +133,7 @@ loanRouter.delete("/:loanId", (req, res, next) => {
     if (error) {
       next(error);
     } else {
-      res.sendStatus(204).send("Entry deleted from database");
+      res.sendStatus(204);
     }
   });
 });
