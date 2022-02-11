@@ -1,6 +1,6 @@
 # LoanStreet
 
-# Installing and Running
+# Installing and Running Server
 
 - Run "npm install" to install of the necessary dependencies to run the application
 - Run "node migration.js" to build Loan database
@@ -8,6 +8,12 @@
   - To fill database with dummy data run "node seed.js"
 
 - Now, run the web server using "node app.js" ("npm run DevStart" to run with nodemon for live updates). Visit http://localhost:3000/ and you will see a message saying "Hello"
+
+# Instaling and Running Client
+
+- Requests library must be installed to run
+- loanStreetClient contains all of the functions that sends the requests
+- Use main.py
 
 ## Database Table Properties
 
