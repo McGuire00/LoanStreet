@@ -2,8 +2,12 @@
 
 # Installing and Running
 
-- run "npm install" to install of the necessary dependencies to run the application
-- run "node migration.js" to build Loan database
+- Run "npm install" to install of the necessary dependencies to run the application
+- Run "node migration.js" to build Loan database
+
+  - To fill database with dummy data run "node seed.js"
+
+- Now, run the web server using "node app.js" ("npm run DevStart" to run with nodemon for live updates). Visit http://localhost:3000/ and you will see a message saying "Hello"
 
 ## Database Table Properties
 
@@ -29,8 +33,9 @@
   - if a loan with the supplied loan ID doesn't exist, returns a 404 response.
 
 - PUT
+
   - Updates the loan with the specfified loan ID using the information from the loan property of the request body and saves it to the database. Returns a 200 response with the updated loan on the loan property of the response body
 
 - DELETE
-    - Deletes the loan with the supplied loan ID from the databse, returns a 204 response.
-    - if a series with the supplied loan ID doesn't exist, returns a 404 response
+  - Deletes the loan with the supplied loan ID from the databse, returns a 204 response.
+  - if a series with the supplied loan ID doesn't exist, returns a 404 response
