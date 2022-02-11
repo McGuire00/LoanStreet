@@ -7,7 +7,7 @@
 
   - To fill database with dummy data run "node seed.js"
 
-- Now, run the web server using "node app.js" ("npm run DevStart" to run with nodemon for live updates). Visit http://localhost:3000/ and you will see a message saying "Hello"
+- Now, run the web server using "node app.js" ("npm run DevStart" to run with nodemon for live updates). Visit http://localhost:3000/ and you will see a message saying "Welcome"
 
 # Instaling and Running Client
 
